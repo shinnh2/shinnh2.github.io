@@ -1,0 +1,91 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>객체_JS입문_SNH</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/layout_sub.css"/>
+  <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style_sub.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/gnb.js"></script>	
+  <script src="js/top.js"></script>
+ </head>
+
+ <body>
+	<div id="wrapper">
+
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="#" title="1. 연산자">1. 연산자</a></li><!-- 연산자 END -->
+						<li><a href="#" title="2. 제어문">2. 제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="3. 객체">3. 객체</a>
+							<ul class="sub">
+								<li><a href="#" title="3-1. 객체란">객체란</a></li>
+								<li><a href="#" title="3-2. 내장 객체">내장 객체</a></li>
+								<li><a href="#" title="3-3. 브라우저 객체 모델">BOM</a></li>
+								<li><a href="#" title="3-4. 문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+
+		<div id="main">
+			<div class="container">
+				<h3>객체</h3>
+
+				<h4>객체란</h4>
+				<ul class="ex_li">
+					<li>Javascript는 객체(Object)기반 언어</li>
+					<li>객체는 기능 또는 속성을 가지고 있다</li>
+					<li>객체의 기능: Method</li>
+					<li>객체의 속성: Property</li>
+				</ul>
+				<!-- 객체의 메서드와 속성을 사용하는 기본형 -->
+				<div class="ex">
+					<dl class="e2">
+						<dt>메서드 사용 기본형</dt>
+						<dd>객체.메서드();  //객체의 메서드를 실행</dd>
+					</dl>
+					<dl>
+						<dt>속성 사용 기본형</dt>
+						<dd>객체.속성;  //객체의 속성값을 가져옴</dd>
+						<dd>객체.속성=값;  //객체의 속성값을 바꿈</dd>
+					</dl>
+				</div><!-- 객체의 메서드와 속성을 사용하는 기본형 END -->
+				
+				<h4>객체의 종류</h4>
+				<ul class="ex_li">
+					<li>내장객체: 자바스크립트 엔진에 내장. 크게 날짜date, 수학math, 배열array, 문자string 객체가 있다. 수학, 정규 표현 객체도 있음.</li>
+					<li>브라우저 객체 모델(BOM): 브라우저에 계층적으로 내장. window, screen, location, history, navigator 객체가 있음</li>
+					<li>문서 객체 모델(DOM): (X)HTML문서 구조. 하지만 IE8 이하 버전에서 호환성이 떨어짐. 대체가 jQuery 문서 객체 모델.</li>
+				</ul>
+			</div><!-- container END -->		
+		</div><!-- main END -->
+
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+
+		<!-- top 버튼 -->
+		<p class="top"><a href="#" title="상단으로 이동"><img src="img/arrow_top_w.png" alt="위로"/></a></p><!-- top 버튼 END -->
+
+	</div><!-- wrapper END -->
+ </body>
+
+</html>

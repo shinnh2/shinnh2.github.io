@@ -1,0 +1,290 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>객체_내장객체_JS입문_SNH</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/layout_sub.css"/>
+  <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style_sub.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/gnb.js"></script>	
+  <script src="js/top.js"></script>
+ </head>
+
+ <body>
+	<div id="wrapper">
+
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="#" title="1. 연산자">1. 연산자</a></li><!-- 연산자 END -->
+						<li><a href="#" title="2. 제어문">2. 제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="3. 객체">3. 객체</a>
+							<ul class="sub">
+								<li><a href="#" title="3-1. 객체란">객체란</a></li>
+								<li><a href="#" title="3-2. 내장 객체">내장 객체</a></li>
+								<li><a href="#" title="3-3. 브라우저 객체 모델">BOM</a></li>
+								<li><a href="#" title="3-4. 문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+
+		<div id="main">
+			<div class="container">
+				<h3>객체_문서 객체 모델(DOM:Document Object Model)</h3>
+				<p>브라우저 객체란: 브라우저에 내장된 객체. 계층적 구조로 이루어져 있음</p>
+				<p class="img_box"><img src="img/bom.png" alt="BOM 구조 이미지"/></p>
+				<ul class="ex_li_num">
+					<li>window 객체: open(), alert(), prompt(), confirm(), moveTo(), resizeTo(), setInterval(), setTimeout()</li>
+					<li>screen 객체: 사용자의 모니터 정보(속성)를 제공</li>
+					<li>location 객체</li>
+					<li>history 객체</li>
+					<li>navigator 객체</li>
+				</ul>
+
+				<!-- 1. window 객체 -->
+				<div class="theory">
+					<h4>1. window 객체</h4>
+					<p>브라우저 객체의 최상위 객체</p>
+					<p>open(), alert(), prompt(), confirm(), moveTo(), resizeTo(), setInterval(), setTimeout()</p>
+					<table summary="window 객체 메서드" class="ex_t">
+						<caption>window 객체 메서드</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">open()</th><td>새 창을 열 때 사용합니다.</td><tr>
+							<tr><th scope="row">alert()</th><td>경고 창을 띄웁니다.</td><tr>
+							<tr><th scope="row">prompt()</th><td>질의응답 창을 띄웁니다.</td><tr>
+							<tr><th scope="row">confirm()</th><td>확인/취소 창을 띄웁니다.</td><tr>
+							<tr><th scope="row">moveTo()</th><td>창의 위치를 이동시킬 때 사용합니다. (단, 크롬, 오페라 브라우저에서는 정상작동X)</td><tr>
+							<tr><th scope="row">resizeTo()</th><td>창의 크기를 변형시킬 때 사용합니다. (단, 크롬, 오페라 브라우저에서는 정상작동X)</td><tr>
+							<tr><th scope="row">setInterval()</th><td>일정 간격으로 지속적으로 실행문을 실행시킬 때 사용합니다.</td><tr>
+							<tr><th scope="row">setTimeout()</th><td>일정 간격으로 한 번만 실행문을 실행시킬 때 사용합니다.</td><tr>
+						</tbody>
+					</table><!-- window 객체 메서드 END -->
+					<h5>open()</h5>
+					<!-- open() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>open() 메서드 기본형</dt>
+							<dd>window.open("url 경로","창 이름","옵션 설정")<dd>
+						</dl>
+					</div><!-- open() 기본형 END -->
+					<table summary="open() 메서드의 속성" class="ex_t">
+						<caption>open() 메서드 속성</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">width</th><td>창의 너비를 설정합니다.</td><tr>
+							<tr><th scope="row">height</th><td>창의 높이를 설정합니다.</td><tr>
+							<tr><th scope="row">left</th><td>창의 좌.우 수평 위치를 설정합니다.</td><tr>
+							<tr><th scope="row">top</th><td>창의 상.하 수직 위치를 설정합니다.</td><tr>
+							<tr><th scope="row">location</th><td>창의 url 주소 입력 영역 노출 여부를 결정합니다.(숨김=no, 노출=yes)</td><tr>
+							<tr><th scope="row">status</th><td>창의 상태 영역 노출 여부를 결정합니다.(숨김=no, 노출=yes)</td><tr>
+							<tr><th scope="row">scrollbars</th><td>창의 스크롤 막대 노출 여부를 결정합니다.(숨김=no, 노출=yes)</td><tr>
+							<tr><th scope="row">toolbars</th><td>창의 도구상자 노출 여부를 결정합니다.(숨김=no, 노출=yes)</td><tr>
+						</tbody>
+					</table><!-- window 객체 메서드 END -->
+					<h5>alert()</h5>
+					<!-- alert() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>alert() 메서드 기본형</dt>
+							<dd>alert("경고 메시지")<dd>
+						</dl>
+					</div><!-- alert() 기본형 END -->
+					<h5>prompt()</h5>
+					<!-- prompt() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>prompt() 메서드 기본형</dt>
+							<dd>prompt("질의 내용","기본 답변");<dd>
+						</dl>
+					</div><!-- prompt() 기본형 END -->
+					<h5>confirm()</h5>
+					<!-- confirm() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>confirm() 메서드 기본형</dt>
+							<dd>confirm("질의 내용");<dd>
+						</dl>
+					</div><!-- confirm() 기본형 END -->
+					<h5>moveTo()</h5>
+					<!-- moveTo() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>moveTo() 메서드 기본형 </dt>
+							<dd>moveTo(x의 위칫값, y의 위칫값);<dd>
+						</dl>
+					</div><!-- moveTo() 기본형 END -->
+					<h5>moveTo()</h5>
+					<!-- resizeTo() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>resizeTo() 메서드 기본형</dt>
+							<dd>resizeTo(너빗값, 높잇값);<dd>
+						</dl>
+					</div><!-- resizeTo() 기본형 END -->
+					<h5>setInterval()/clearInterval()</h5>
+					<!-- setInterval() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>setInterval() 메서드 기본형</dt>
+							<dd>var 참조 변수=setInterval( "스크립트 실행문", 시간 간격(밀리초 단위) );<dd>
+						</dl>
+						<dl class="w48">
+							<dt>clearInterval() 메서드 기본형</dt>
+							<dd>clearInterval(setInterval의 참조 변수);<dd>
+						</dl>
+					</div><!-- setInterval() 기본형 END -->
+					<!-- setTimeout() 기본형 -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>setTimeout() 메서드 기본형</dt>
+							<dd>var 참조 변수=setTimeout( "스크립트 실행문", 시간 간격(밀리초 단위) );<dd>
+						</dl>
+						<dl class="w48">
+							<dt>clearTimeout() 메서드 기본형</dt>
+							<dd>clearTimeout(setTimeout의 참조 변수);<dd>
+						</dl>
+					</div><!-- setInterval() 기본형 END -->
+				</div><!-- 1. window 객체 END -->
+
+				<!-- 2. screen 객체 -->
+				<div class="theory">
+					<h4>2. screen 객체</h4>
+					<p>사용자의 모니터 정보(속성)를 제공하는 객체</p>
+					<table summary="screen 객체의 속성" class="ex_t">
+						<caption>screen 객체의 속성</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">screen.width</th><td>화면의 너빗값을 반환합니다.</td></tr>
+							<tr><th scope="row">screen.height</th><td>화면의 높잇값을 반환합니다.</td></tr>
+							<tr><th scope="row">screen.availWidth</th><td>작업 표시줄을 제외한 화면의 너빗값을 반환합니다.</td></tr>
+							<tr><th scope="row">screen.availHeight</th><td>작업 표시줄을 제외한 화면의 높잇값을 반환합니다.</td></tr>
+							<tr><th scope="row">screen.colorDepth</th><td>사용자 모니터가 표현 가능한 컬러 bit를 반환합니다.</td></tr>
+						</tbody>
+					</table><!-- screen 객체의 속성 END -->	
+				</div><!--  2. screen 객체 END -->
+				
+				<!-- 3. location 객체 --> 
+				<div class="theory">
+					<h4>3. location 객체</h4>
+					<p>사용자 브라우저의 주소 창에 url에 대한 정보(속성)와 새로 고침 기능(메서드)을 제공</p>
+					<p>사용시 웹 서버에 올려야 정상적으로 실행 가능</p>
+					<div class="ex">
+						<dl class="w48">
+							<dt>location 객체 생성 기본형</dt>
+							<dd>location.속성;<dd>
+							<dd>location.메서드();</dd>
+						</dl>
+					</div><!-- location 객체 기본형 END -->
+					<table summary="location 객체의 속성, 메서드" class="ex_t">
+						<caption>location 객체의 속성, 메서드</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">location.href</th><td>주소 영역에 참조 주소를 설정하거나 URL을 반환합니다.</td></tr>
+							<tr><th scope="row">location.hash</th><td>URL에 해시값(#에 명시된 값)을 반환합니다.<br/>ex)http://www.js.com#hello</td></tr>
+							<tr><th scope="row">location.hostname</th><td>URL에 호스트 이름을 설정하거나 반환합니다.</td></tr>
+							<tr><th scope="row">location.host</th><td>URL에 호스트 이름과 포트 번호를 반환합니다.</td></tr>
+							<tr><th scope="row">location.port</th><td>URL에 포트 번호를 반환합니다.</td></tr>
+							<tr><th scope="row">location.protocol</th><td>URL에 프로토콜을 반환합니다.</td></tr>
+							<tr><th scope="row">location.search</th><td>URL에 쿼리(요청 값)을 반환합니다.<br/>ex)http://www.js.com?pagenum=1&sort=DESC</td></tr>
+							<tr><th scope="row">location.reload()</th><td>새로고침</td></tr>
+						</tbody>
+					</table><!-- location 객체의 속성 END -->
+				</div><!-- 3. location 객체 END -->
+
+				<!-- 4. history 객체 -->
+				<div class="theory">
+					<h4>4. history 객체</h4>
+					<p>사용자가 방문한 사이트 중 이전 방문, 다음 방문 사이트로 돌아갈 수 있는 속성과 메서드 제공</p>
+					<div class="ex">
+						<dl class="w48">
+							<dt>history 객체 생성 기본형</dt>
+							<dd>history.속성;<dd>
+							<dd>history.메서드();</dd>
+						</dl>
+					</div><!-- history 객체 기본형 END -->
+					<table summary="history 객체의 속성, 메서드" class="ex_t">
+						<caption>history 객체의 속성/메서드</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">length</th><td>방문 기록에 저장된 목록의 개수를 반환합니다.</td></tr>
+							<tr><th scope="row">history.back()</th><td>이전 방문한 페이지로 이동합니다.</td></tr>
+							<tr><th scope="row">history.forward()</th><td>다음 방문한 페이지로 이동합니다.</td></tr>
+							<tr><th scope="row">history.go(이동 숫자)</th><td>이동 숫자가 -2이면 2단계 이전 페이지로 이동합니다.</td></tr>
+						</tbody>
+					</table><!-- history 객체의 속성, 메서드 END --> 
+				</div><!-- 4. history 객체 END -->
+
+				<!-- 5. navigator 객체 -->
+				<div class="theory">
+					<h4>5. navigator 객체</h4>
+					<p>현재 방문자가 사용하는 브라우저 정보와 운영체제의 정보를 제공하는 객체</p>
+					<div class="ex">
+						<dl class="w48">
+							<dt>navigator 객체 기본형</dt>
+							<dd>navigator.속성;</dd>
+						</dl>
+					</div><!-- navigator 객체 생성 기본형 END -->
+					<table summary="navigator 객체의 속성" class="ex_t">
+						<caption>navigator 객체의 속성</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">navigator.appCodeName</th><td>방문자의 브라우저 코드명을 반환합니다.</td></tr>
+							<tr><th scope="row">navigator.appName</th><td>방문자의 브라우저 이름을 반환합니다.</td></tr>
+							<tr><th scope="row">navigator.appVersion</th><td>방문자의 브라우저 버전 정보를 반환합니다.</td></tr>
+							<tr><th scope="row">navigator.language</th><td>방문자의 브라우저 사용 언어를 반환합니다.</td></tr>
+							<tr><th scope="row">navigator.product</th><td>방문자의 브라우저 사용 엔진 이름을 반환합니다.</td></tr>
+							<tr><th scope="row">navigator.platform</th><td>방문자의 브라우저를 실행하는 운영체제를 반환합니다.</td></tr>
+							<tr><th scope="row">navigator.userAgent</th><td>방문자의 브라우저와 운영체제 종합 정보를 제공합니다.</td></tr>
+						</tbody>
+					</table><!-- 배열 객체의 메서드 및 속성 END -->
+				</div><!-- 5. navigator 객체 END -->							
+			</div><!-- container END -->
+		</div><!-- main END -->
+
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+
+		<!-- top 버튼 -->
+		<p class="top"><a href="#" title="상단으로 이동"><img src="img/arrow_top_w.png" alt="위로"/></a></p><!-- top 버튼 END -->
+
+	</div><!-- wrapper END -->
+ </body>
+
+</html>

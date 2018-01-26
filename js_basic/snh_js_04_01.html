@@ -1,0 +1,680 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>객체_내장객체_JS입문_SNH</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/layout_sub.css"/>
+  <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style_sub.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/gnb.js"></script>	
+  <script src="js/top.js"></script>
+ </head>
+
+ <body>
+	<div id="wrapper">
+
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="#" title="1. 연산자">1. 연산자</a></li><!-- 연산자 END -->
+						<li><a href="#" title="2. 제어문">2. 제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="3. 객체">3. 객체</a>
+							<ul class="sub">
+								<li><a href="#" title="3-1. 객체란">객체란</a></li>
+								<li><a href="#" title="3-2. 내장 객체">내장 객체</a></li>
+								<li><a href="#" title="3-3. 브라우저 객체 모델">BOM</a></li>
+								<li><a href="#" title="3-4. 문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+
+		<div id="main">
+			<div class="container">
+				<h3>객체_내장객체(Built-in Object)</h3>
+				<p>내장 객체의 종류</p>
+				<ul class="ex_li_num">
+					<li>날짜 정보 객체</li>
+					<li>숫자 객체</li>
+					<li>수학 객체</li>
+					<li>배열 객체</li>
+					<li>문자 객체</li>
+					<li>정규 표현 객체</li>
+				</ul>
+
+				<!-- 0 내장객체 기본형 예제 -->
+				<div class="theory">
+					<h4>0 내장 객체 생성하기</h4>
+					<!-- 내장 객체 생성 기본형 -->
+					<div class="ex">
+						<dl class="w32">
+							<dt>내장 객체 생성 기본형</dt>
+							<dd>참조 변수(인스턴스 네임)=new 생성 함수()</dd>
+						</dl>
+					</div><!-- 내장 객체 생성 기본형 END -->
+					<input type="button" id="bo_r" name="bo_r" value="내장 객체 생성 예제" class="btn_normal" onclick="bo_r()"/>
+					<script>
+					//<![CDATA[
+					function bo_r(){
+						var tv=new Object(); //생성된 객체를 변수tv가 참조합니다.
+						//tv객체의 속성을 생성합니다.
+						tv.width="30cm";
+						tv.height="25cm";
+						tv.weight="20kg";
+						tv.color="white";
+						//tv객체의 off기능(메서드)를 생성합니다.
+						tv.off=function(){
+							document.write("전원 off","<br/>");
+						}
+
+						document.write(tv.width,"<br/>");
+						document.write(tv.height,"<br/>");
+						document.write(tv.weight,"<br/>");
+						document.write(tv.color,"<br/>");
+						tv.off();			
+					}
+					//]]>
+					</script>
+				</div><!-- 내장객체 기본형 예제 END -->
+
+				<!-- 1 날짜 정보 객체 -->
+				<div class="theory">
+					<h4>1 날짜(Date) 정보 객체</h4>
+					<p>날짜 객체는 생성할 때 반드시 생성자 함수가 필요하다.</p>
+					<div class="ex">
+						<dl class="w32">
+							<dt>현재 날짜 정보</dt>
+							<dd>참조 변수=new Date();<dd>
+						</dl>
+						<dl class="w32">
+							<dt>특정 날짜 정보</dt>
+							<dd>참조 변수=new Date("연/월/일");</dd>
+							<dd>참조 변수=new Date(연, 월-1, 일);</dd>
+						</dl>
+					</div><!-- date 객체 기본형 END -->
+					<table summary="날짜 관련 메서드" class="ex_t">
+						<caption>날짜 관련 메서드</caption>
+						<colgroup><col width="25%"/><col width="25%"/><col width="25%"/><col width="25%"/></colgroup>
+						<thead>
+							<tr><th scope="col" colspan="2">날짜 정보를 가져올 때(GET)</th><th scope="col" colspan="2">날짜 정보를 수정할 때(SET)</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">getFullYear()</th><td>연도 정보를 가져옴</td><th scope="row">setFullYear()</th><td>연도 정보만 수정</td></tr>
+							<tr><th scope="row">getMonth()</th><td>월 정보를 가져옴(현재 월-1)</td><th scope="row">setMonth()</th><td>월 정보만 수정(월-1)</td></tr>
+							<tr><th scope="row">getDate()</th><td>일 정보를 가져옴</td><th scope="row">setDate()</th><td>일 정보만 수정</td></tr>
+							<tr><th scope="row">getDay()</th><td>요일 정보를 가져옴(일:0~토:6)</td><th scope="row" colspan="2">'요일'은 날짜를 바꾸면 자동으로 바뀌므로 setDay는 없음.</th></tr>
+							<tr><th scope="row">getHours()</th><td>시 정보를 가져옴</td><th scope="row">setHours()</th><td>시 정보만 수정</td></tr>
+							<tr><th scope="row">getMinutes()</th><td>분 정보를 가져옴</td><th scope="row">setMinutes()</th><td>분 정보만 수정</td></tr>
+							<tr><th scope="row">getSeconds()</th><td>초 정보를 가져옴</td><th scope="row">setSeconds()</th><td>초 정보만 수정</td></tr>
+							<tr><th scope="row">getMilliseconds()</th><td>밀리 초 정보를 가져옴(1/1000초 단위)</td><th scope="row">setMilliseconds()</th><td>밀리초 정보만 수정</td></tr>
+							<tr><th scope="row">getTime()</th><td>1970년 1월 1일부터 경과된 시간을 밀리초로 표기함</td><th scope="row">setTime()</th><td>1970년 1월 1일부터 경과된 시간을 밀리초로 수정</td></tr>
+							<tr><th scope="row">toGMTString();</th><td>GMT 표준 표기 방식으로 문자형 데이터로 반환함</td><th scope="row">toLocaleString();</th><td>운영 시스템 표기 방식으로 문자형 데이터로 반환함</td></tr>
+						</tbody>
+					</table><!-- 날짜 관련 메서드 END -->
+					<input type="button" id="date1" name="date1" value="날짜 예제" class="btn_normal" onclick="date1()"/>
+					<p id="result_d1"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+					function date1(){
+						/* 현재 날짜로부터 연말까지 며칠이 남았는지 날짜 정보 객체를 이용하여 알아보기 */
+						var t=new Date(); //현재 날짜 객체를 생성
+						var nowYear=t.getFullYear(); //현재 날짜의 연도 정보
+						var theDate=new Date(nowYear,11,31); //현재 연두의 12월31일 날짜 객체 생성 
+						var diffDate=theDate-t; //연말까지 남은 기간
+						console.log(diffDate);
+						//형식: 남은 일수(밀리 초)=특정 날짜 객체-현재 날짜 객체
+						var result_d=Math.ceil(diffDate/(1000*60*60*24)); //밀리 초를 일로 계산:밀리초*분*시간*1일
+
+						document.getElementById("result_d1").innerHTML="현재일로 부터 올해 말일까지는"+result_d+"일 남았습니다.";		
+					}
+					//]]>
+					</script>		
+				</div><!-- 날짜 정보 객체 END -->
+				
+				<!-- 2 숫자 객체 --> 
+				<div class="theory">
+					<h4>2 숫자 객체</h4>
+					<div class="ex">
+						<dl class="w32">
+							<dt>숫자 객체 생성 기본형</dt>
+							<dd>var 참조 변수=new Number(값);<dd>
+							<dd>var 참조 변수=값;</dd>
+						</dl>
+						<dl class="w32">
+							<dt>숫자의 객체의 속성</dt>
+							<dd>Number.속성;</dd>
+						</dl>
+						<dl class="w32">
+							<dt>숫자 객체의 메서드</dt>
+							<dd>객체.표기 메서드()</dd>
+						</dl>
+					</div><!-- Number 객체 기본형 END -->
+					<table summary="Number 객체의 속성" class="ex_t">
+						<caption>Number 객체의 속성</caption>
+						<colgroup><col width="50%"/><col width="50%"/></colgroup>
+						<thead>
+							<tr><th scope="col">속성</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">MAX_VALUE</th><td>표현 가능한 가장 큰 수를 지수 표기법으로 반환</td></tr>
+							<tr><th scope="row">MIN_VALUE</th><td>표현 가능한 가장 작은 수를 지수 표기법으로 반환</td></tr>
+							<tr><th scope="row">POSITIVE_INFINITY</th><td>무한대 수 표기</td></tr>
+							<tr><th scope="row">NEGATIVE_INFINITY</th><td>음의 무한대 수 표기</td></tr>
+							<tr><th scope="row">NaN</th><td>숫자가 아닌 경우 표기</td></tr>
+						</tbody>
+					</table><!-- Number 객체의 속성 END -->
+					<table summary="Number 객체의 메서드" class="ex_t">
+						<caption>Number 객체의 메서드</caption>
+						<colgroup><col width="50%"/><col width="50%"/></colgroup>
+						<thead>
+							<tr><th scope="col">속성</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">toExponential(n)</th><td>지수 표기법으로 소수점 n자리만큼 문자형 데이터로 반환합니다.</td></tr>
+							<tr><th scope="row">toFixed(n)</th><td>소수점 n자리만큼 반올림하여 문자형 데이터로 반환합니다.</td></tr>
+							<tr><th scope="row">toPrecision(n)</th><td>유효 숫자 n의 개수만큼 반올림하여 문자형 데이터로 반환합니다.</td></tr>
+							<tr><th scope="row">toString()</th><td>숫자형 데이터를 문자형 데이터로 반환합니다.</td></tr>
+							<tr><th scope="row">valueOf(n)</th><td>객체의 원래 값을 반환합니다.</td></tr>
+							<tr><th scope="row">parseInt(값)</th><td>데이터를 정수로 변환하여 반환합니다.</td></tr>
+							<tr><th scope="row">parseFloat(값)</th><td>데이터를 실수로 변환하여 반환합니다.</td></tr>
+						</tbody>
+					</table><!-- Number 객체의 메서드 END -->
+					<input type="button" id="number1" name="number1" value="숫자 예제" class="btn_normal" onclick="number1()"/>
+					<script type="text/javascript">
+					//<![CDATA[
+					function number1(){
+						var num1=3.456789;
+						var num2=700000;
+						var num3="30.5px";
+						var num4=40;
+
+						document.write("표현 가능한 가장 큰 수: "+Number.MAX_VALUE+"<br/>");
+						document.write("표현 가능한 가장 작은 수: "+Number.MIN_VALUE+"<br/>");
+						document.write("숫자가 아닌 경우의 표기: "+Number.NaN+"<br/>");
+						document.write("무한대 수 표기: "+Number.POSITIVE_INFINITY+"<br/>");
+						document.write("음의 무한대 수 표기: "+Number.NEGATIVE_INFINITY+"<br/>");
+
+						document.write(num2.toExponential(1)+"<br/>"); //지수표기법으로 봔환
+						document.write(num1.toFixed(2)+"<br/>"); //소수점 자리로 반올림
+						document.write(num1.toPrecision(2)+"<br/>"); //유효 숫자 개수로 반올림
+						document.write(num1.toString()+"<br/>"); //문자로 변환
+						document.write(num4.valueOf()+"<br/>"); //저장된 값
+						document.write(parseInt(num3)+num4+"<br/>"); //정수 추출
+						document.write(parseFloat(num3)+num4+"<br/>"); //실수 추출
+					}
+					//]]>
+					</script>
+				</div><!-- 숫자 객체 END -->
+
+				<!-- 3 수학 객체 -->
+				<div class="theory">
+					<h4>3 수학 객체</h4>
+					<p>난수로 원하는 구간 정수의 값 구하기 :  Math.floor(Math.random()*(최댓값-최솟값+1))+최솟값;</p>
+					<table summary="Math 객체의 메서드, 상수" class="ex_t">
+						<caption>Math 객체의 메서드, 상수</caption>
+						<colgroup><col width="50%"/><col width="50%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">Math.abs(숫자)</th><td>숫자의 절대값을 반환합니다.</td></tr>
+							<tr><th scope="row">Math.max(숫자1, 숫자2, 숫자3, 숫자4)</th><td>숫자 가장 큰 값을 반환합니다.</td></tr>
+							<tr><th scope="row">Math.min(숫자1, 숫자2, 숫자3, 숫자4)</th><td>숫자 중 가작 작은 값을 반환합니다.</td></tr>
+							<tr><th scope="row">Math.pow(숫자, 제곱값)</th><td>숫자의 거듭제곱값을 반환합니다.</td></tr>
+							<tr><th scope="row">Math.random()</th><td>0~1 사이의 난수를 반환합니다.</td></tr>
+							<tr><th scope="row">Math.round(숫자)</th><td>소수점 첫째 자리에서 반올림하여 정수를 반환합니다.</td></tr>
+							<tr><th scope="row">Math.ceil(숫자)</th><td>소수점 첫째 자리에서 무조건 올림해서 정수를 반환합니다.</td></tr>
+							<tr><th scope="row">Math.floor(숫자)</th><td>소수점 첫째 다리에서 무조건 내림해서 정수를 반환합니다.</td></tr>
+							<tr><th scope="row">Math.sqrt(숫자)</th><td>숫자의 제곱근 값을 반환합니다.</td></tr>
+							<tr><th scope="row">Math.PI</th><td>원주율 상수를 반환합니다.</td></tr>
+						</tbody>
+					</table><!-- Math 객체의 메서드, 상수 END --> 
+					<input type="button" id="math1" name="math1" value="수학 예제" class="btn_normal" onclick="math1()"/>
+					<script type="text/javascript">
+					//<![CDATA[
+					function math1(){
+						var num=2.1234;
+
+						var maxNum=Math.max(10, 5, 8, 30); //최댒값을 반환합니다.
+						var minNum=Math.min(10, 5, 8, 30); //최솟값을 반환합니다.
+						var roundNum=Math.round(num); //반올림 값을 반환합니다.
+						var floorNum=Math.floor(num); //소수점에서 무조건 내립니다.
+						var ceilNum=Math.ceil(num); //소수점에서 무조건 올립니다.
+						var rndNum=Math.random(); //0~1 사이에 난수가 발생합니다.
+						var piNum=Math.PI; //Main.PI는 원주율 상수를 반환합니다.
+
+						document.write(maxNum,"<br/>");
+						document.write(minNum,"<br/>");
+						document.write(roundNum,"<br/>");
+						document.write(floorNum,"<br/>");
+						document.write(ceilNum,"<br/>");
+						document.write(rndNum,"<br/>");
+						document.write(piNum,"<br/>");
+					}
+					//]]>
+					</script><!-- 수학1 예제 END -->
+					<input type="button" id="math2" name="math2" value="수학 응용 예제" class="btn_normal" onclick="math2()"/>
+					<p id="result_math2"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+					function math2(){
+						document.getElementById("result_math2").innerHTML="가위, 바위, 보 맞추기";
+						//값 입력받아 분류하기
+						var t=prompt("가위, 바위, 보 중 선택하세요!","가위");
+						var tNum;
+						switch(t){
+							case "가위": tNum=1;
+							break;
+
+							case "바위": tNum=2;
+							break;
+
+							case "보": tNum=3;
+							break;
+
+							default: document.getElementById("result_math2").innerHTML="잘못 작성하셨습니다.";
+						}
+						//계산
+						var com=Math.ceil(Math.random()*3); //1~3까지 랜덤으로 발생
+						//값 비교
+						if(tNum==com){ alert("맞췄습니다! 축하합니다!!"); }
+						else{ alert("틀렸습니다... 다음 기회에!"); }
+					}
+					//]]>
+					</script><!-- 수학2 예제 END -->
+				</div><!-- 숫자 객체 END -->
+
+				<!-- 4 배열 객체 -->
+				<div class="theory">
+					<h4>4 배열 객체</h4>
+					<div class="ex">
+						<dl>
+							<dt>배열 객체 기본형 1</dt>
+							<dd>var 참조 변수=new Array();</dd>
+							<dd>참조 변수[0]=값1; 참조 변수[1]=값2; 참조 변수[3]=값3; ... 참조 변수[n]=값n;</dd>
+						</dl>
+					</div><!-- 배열 객체 생성 기본형 1 END -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>배열 객체 기본형 2</dt>
+							<dd>var 참조 변수=new Array(값1, 값2, 값3, ... 값n);</dd>
+						</dl>
+						<dl class="w48">
+							<dt>배열 객체 기본형 3</dt>
+							<dd>var 참조 변수=[값1, 값2, 값3, ... 값n];</dd>
+						</dl>
+					</div><!-- 배열 객체 생성 기본형 END -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>배열 객체 저장된 데이터 불러오기</dt>
+							<dd>참조 변수[인덱스 번호];</dd>
+						</dl>
+					</div><!-- 배열 객체 저장된 데이터 불러오기 END -->
+					<table summary="배열 객체의 메서드 및 속성" class="ex_t">
+						<caption>배열 객체의 메서드 및 속성</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">join(연결 문자)</th><td>배열 객체에 데이터를 연결 문자 기준으로 1개의 문자형 데이터로 반환합니다.</td></tr>
+							<tr><th scope="row">reverse()</th><td>배열 객체에 데이터의 순서를 거꾸로 바꾼 후 반환합니다.</td></tr>
+							<tr><th scope="row">sort()</th><td>배열 객체에 데이터를 오름차순으로 정렬합니다.</td></tr>
+							<tr><th scope="row">slice(index1, index3)</th><td>배열 객체의 데이터 중 index1부터 index3 이전까지 잘라서 배열 객체로 가져옵니다.</td></tr>
+							<tr><th scope="row">splice(시작점, 개수, 데이터)</th><td>배열 객체에 지정 데이터를 삭제하고 그 구간에 새 데이터를 삽입할 수 있습니다.</td></tr>
+							<tr><th scope="row">concat(추가로 합치려고 하는 배열)</th><td>2개의 배열 객체를 하나로 결합시킵니다.</td></tr>
+							<tr><th scope="row">pop()</th><td>배열에 저장된 데이터 중 마지막 인덱스에 저장된 데이터를 삭제합니다.</td></tr>
+							<tr><th scope="row">push(new data)</th><td>배열 객체 마지막 인덱스에 새 데이터를 삽입합니다.</td></tr>
+							<tr><th scope="row">shift()</th><td>배열 객체에 저장된 데이터 중 첫번째 인덱스에 저장된 데이터를 삭제합니다.</td></tr>
+							<tr><th scope="row">unshift(new data)</th><td>배열 객체의 가장 앞의 인덱스에 새 데이터를 삽입합니다.</td></tr>
+							<tr><th scope="row">length</th><td>배열에 저장된 총 데이터의 개수를 반환합니다.</td></tr>
+						</tbody>
+					</table><!-- 배열 객체의 메서드 및 속성 END -->
+					<input type="button" id="array1" name="array1" value="배열 객체 예제" class="btn_normal" onclick="array1()"/>
+					<script type="text/javascript">
+					//<![CDATA[
+					function array1(){
+						var greenl=["사당", "교대", "방배", "강남"];
+						var yellowl=["미금", "정자", "모란", "수서"];
+						//1. join(연결문자)
+						document.write(greenl,"<br/>"); //배열 객체 출력
+						document.write(typeof greenl,"<br/>"); //배열 객체의 타입 출력: object
+						document.write(greenl.join("-"),"<br/>"); //-를 기준으로 배열 값들이 하나의 문자형 데이터로 결합
+						document.write(typeof greenl.join("-"),"<br/>"); //-로 묶인 배열의 타입 출력: string
+						//2. reverse()
+						document.write(greenl.reverse(),"<br/>"); //배열 객체 값 순서가 뒤바뀌어 출력
+						//3. sort()
+						document.write(greenl.sort(),"<br/>"); //배열 객체 값들을 오름차순으로 정렬 후 출력
+						//5. splice(시작점, 개수, 데이터)
+						greenl.splice(2,1,"서초", "역삼");
+						document.write(greenl,"<br/>"); //사당, 교대, 서초 ,역삼, 강남
+						//4. slice(시작점, 그 점 이전까지);
+						document.write(greenl.slice(1,3),"<br/>"); //교대, 서초				
+						//6. concat(추가로 합치려는 배열)
+						var twol=greenl.concat(yellowl);
+						document.write(twol,"<br/>");
+						//7. pop()
+						greenl.pop();
+						document.write(greenl,"<br/>");
+						//8. push(새 데이터)
+						greenl.push("삼성");
+						document.write(greenl,"<br/>");
+						//9. shift()
+						greenl.shift();
+						document.write(greenl,"<br/>");
+						//10. unshift(새 데이터)
+						greenl.unshift("신도림");
+						document.write(greenl,"<br/>");
+						//11.length
+						document.write(greenl, ": ", greenl.length, "<br/>");
+						document.write(yellowl, ": ", yellowl.length, "<br/>")
+					}
+					//]]>
+					</script><!-- 배열 객체 script END -->
+				</div><!-- 배열 객체 END -->
+				
+				<!-- 5 문자 객체 -->
+				<div class="theory">
+					<h4>5 문자 객체</h4>
+					<div class="ex">
+						<dl class="w48">
+							<dt>문자 객체 생성 기본형 1</dt>
+							<dd>var 참조 변수=new String(문자형 데이터);</dd>
+						</dl>
+						<dl class="w48">
+							<dt>문자 객체 생성 기본형 2</dt>
+							<dd>var 참조 변수=문자형 데이터;</dd>
+						</dl>
+					</div><!-- 문자 객체 기본형 END -->
+					<table summary="문자 객체 메서드 및 속성" class="ex_t">
+						<caption>문자 객체 메서드 및 속성</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">charAt(index)</th><td>문자열에서 인덱스 번호에 해당하는 문자를 반환합니다.</td></tr>
+							<tr><th scope="row">indexOf("찾을 문자")</th><td>문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아 최초로 일치하는 문자의 인덱스 번호를 반환합니다. 만을 찾는 문자가 없으면 -1을 반환합니다.</td></tr>
+							<tr><th scope="row">lastIndexOf("찾을 문자")</th><td>문자열에서 오른쪽부터 찾을 문자와 일치하는 문자를 찾아 최초로 일치하는 문자의 인덱스 번호를 반환합니다. 만을 찾는 문자가 없으면 -1을 반환합니다.</td></tr>
+							<tr><th scope="row">match("찾을 문자")</th><td>문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아 최초로 찾은 문자를 반환합니다. 만일 찾는 문자가 없으면 null을 반환합니다.</td></tr>
+							<tr><th scope="row">replace("바꿀 문자", "새 문자")</th><td>문자열에서 왼쪽부터 바꿀 문자와 일치하는 문자를 찾아 최초로 찾은 문자를 새 문자로 치환합니다.</td></tr>
+							<tr><th scope="row">search("찾을 문자")</th><td>문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아 최초로 일치하는 인덱스 번호를 반환합니다.</td></tr>
+							<tr><th scope="row">slice(a,b)</th><td>앞에서 a개의 문자를 자르고 b번째 이후의 문자를 자른 후 남는 문자를 반환합니다. b에 -를 붙이면 뒤에서부터 셉니다.</td></tr>
+							<tr><th scope="row">substring(a,b)</th><td>a인덱스부터 b인덱스 이전 구간의 문자를 반환합니다.</td></tr>
+							<tr><th scope="row">substr(a, 문자 개수)</th><td>문자열에 a인덱스부터 지정한 문자 개수만큼 문자열을 반환합니다.</td></tr>
+							<tr><th scope="row">split("문자")</th><td>지정한 문자를 기준으로 문자 데이터를 나누어 배열에 저장하여 반환합니다.</td></tr>
+							<tr><th scope="row">toLowerCase()</th><td>문자열에서 영문 대문자를 모두 소문자로 바꿉니다.</td></tr>
+							<tr><th scope="row">toUpperCase()</th><td>문자열에서 영문 소문자를 모두 대문자로 바꿉니다.</td></tr>
+							<tr><th scope="row">length</th><td>문자열에서 문자의 개수를 반환합니다.</td></tr>
+							<tr><th scope="row">concat("새로운 문자")</th><td>문자열에 새로운 문자열을 결합합니다.</td></tr>
+							<tr><th scope="row">charCodeAt("찾을 문자")</th><td>찾을 문자의 아스키 코드 값을 반환합니다.</td></tr>
+							<tr><th scope="row">fromCharCode(아스키 코드 값)</th><td>아스키 코드 값에 해당하는 문자를 반환합니다.</td></tr>
+							<tr><th scope="row">trim()</th><td>문자의 앞 또는 뒤의 공백 문자열을 삭제합니다.</td></tr>
+						</tbody>
+					</table><!-- 문자 객체 메서드 및 속성 END -->
+					<input type="button" id="string1" name="string1" value="문자 객체 예제1" class="btn_normal" onclick="string1()"/>
+					<script type="text/javascript">
+					//<![CDATA[
+						function string1(){
+							var t="Hello Thank you good luck to you";
+							document.write(t, "<br/>");
+							document.write(t.charAt(16), "<br/>"); //인덱스16에 저장된 문자를 불러옴: g
+							document.write(t.indexOf("you"),"<br/>"); //왼쪽부터 먼저 나온 you의 인덱스를 반환: 12
+							document.write(t.indexOf("you",16),"<br/>"); //문자열 인덱스 16 위치부터 최초로 발견된 you의 인덱스 값을 반환: 29
+							document.write(t.lastIndexOf("you"),"<br/>"); //오른쪽에서 왼쪽으로 먼저 나온 you의 인덱스를 반환: 29
+							document.write(t.lastIndexOf("you",25),"<br/>"); //문자열 인덱스 25부터 왼쪽으로 최초의 you 인덱스를 반환: 12
+							document.write(t.match("luck"),"<br/>"); //왼쪽부터 최초로 발견된 luck과 일치하는 문자 반환: luck
+							document.write(t.search("you"),"<br/>"); //문자열 왼쪽부터 최초로 발견된 you의 인덱스 반환: 12
+							document.write(t.substr(21,4),"<br/>"); //문자열 인덱스 21부터 네글자 가져옴: luck
+							document.write(t.substring(6,12),"<br/>"); //문자열 인덱스 6부터 12이전까지 문자 반환: Thank
+							document.write(t.replace("you","me"),"<br/>"); //문자열 왼쪽부터 최초의 you를 me로 치환
+							document.write(t.toLowerCase(),"<br/>"); //영문자를 모두 소문자로
+							document.write(t.toUpperCase(),"<br/>"); //영문자를 모두 대문자로
+							document.write(t.length,"<br/>"); // 공백 포함 문자 총 개수 반환
+							
+							var s=t.split(" "); //공백 문자를 기준으로 문자를 분리. 이는 배열에 저장되어 s에 할당
+							document.write(s, "<br/>");
+							document.write(typeof(s), "<br/>");
+							document.write(s[0], "<br/>"); //s의 인덱스0에 저장된 문자열을 출력합니다: hello
+							document.write(s[4], "<br/>"); // s의 인덱스4에 저장된 문자열을 출력합니다:luck
+
+							var str="A";
+							var t=str.charCodeAt(0); //변수에 저장된 문자열 중 0번 인덱스의 문자 A의 아스키 코드 값을 반환합니다.
+							document.write(t,"<br/>"); //A의 아스키 코드 값 65를 출력
+							document.write(String.fromCharCode(65),"<br/>"); //코드 값 65에 해당하는 문자를 반환
+						}
+					//]]>
+					</script><!-- 문자 객체 예제 script END -->
+					<input type="button" id="string2" name="string2" value="문자 객체 예제2" class="btn_normal" onclick="string2()"/>
+					<p id="result_s2"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+					function string2(){
+						var useEmail=prompt("당신의 이메일 주소는?","@를 넣어서 작성해주세요");
+						var arrUrl=[".co.kr",".com",".net",".or.kr",".go.kr"]; //이메일의 뒷부분 형식을 배열로 저장
+						//초깃값 저장
+						var check1=false;
+						var check2=false;
+						//방문자가 입력한 이메일 주소에 "@"가 포함되어 있으면 변수 check1에 true가 저장되도록 하였습니다.
+						//indexOf("문자")는 찾는 문자가 없을 경우에만 -1을 반환. 아니라면 true를 저장
+						if(userEmail.indexOf("@")>0) check1=true;
+						//이메일에 배열 데이터 포함 여부 검사
+						//배열에 있는 데이터가 없으면 -1을 반환. 아니라면 true를 저장
+						for(var i=0; i<arrUrl.length; i++){
+							if(userEmail.indexOf(arrUrl[i])>0) check2=true;
+						}
+						//위의 과정을 통해 제대로 입력한 경우에만 출력, 아닌 경우에는 경고창 뜨도록 함
+						if(check1 && check2){
+							document.getElementById("result_s2").innerHTML="입력하신 이메일은 "+useEmail+" 입니다.";
+						}else{
+							alert("이메일 형식이 잘못되었습니다.");
+						}
+					}
+					//]]>
+					</script><!-- 문자 객체 예제 script2 END --> 
+				</div><!-- 문자 객체 END -->
+
+				<!-- 6 정규 표현 객체 -->
+				<div class="theory">
+					<h4>6 정규 표현 객체</h4>
+					<p>정규 표현(RegExp)객체는 데이터를 규칙에 맞게 작성했는지 판단해서 알려줍니다.</p>
+					<div class="ex">
+						<dl class="w48">
+							<dt>정규 표현 객체 생성 기본형1</dt>
+							<dd>var 참조 변수=new RegExp(패턴, 검색 옵션)</dd>
+						</dl>
+						<dl class="w48">
+							<dt>정규 표현 객체 생성 기본형2</dt>
+							<dd>var 참조 변수=/패턴/검색 옵션</dd>
+						</dl>
+					</div><!-- 정규 표현 객체 기본형 END -->
+					<table summary="정규 표현 검색 옵션" class="ex_t">
+						<caption>정규 표현 검색 옵션</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">*</th><td>0회 이상 일치하는 문자를 검사할 때 사용합니다.</td></tr>
+							<tr><th scope="row">+</th><td>1회 이상 일치하는 문자를 검사할 때 사용합니다.</td></tr>
+							<tr><th scope="row">i</th><td>찾는 문자가 영문일 경우 대.소문자를 구분하지 않습니다.</td></tr>
+							<tr><th scope="row">?</th><td>0회 또는 1회, 규칙에 맞는 문자가 있는지 검사합니다.</td></tr>
+							<tr><th scope="row">g</th><td>옵션에 g가 없으면 데이터의 왼쪽부터 규칙에 일치하는 문자 한 개만 찾지만, g를 넣으면 규칙에 맞는 모든 문자를 찾습니다.</td></tr>
+							<tr><th scope="row">m</th><td>데이터의 행이 바뀌어도 규칙에 맞는 문자를 찾습니다.</td></tr>
+							<tr><th scope="row">$</th><td>문자열 끝 부분에 규칙에 맞는 문자를 찾습니다.</td></tr>
+							<tr><th scope="row">^</th><td>문자열 앞에서부터 규칙에 일치하는 문제를 찾습니다. 또는 부정을 나타냅니다.</td></tr>
+							<tr><th scope="row">\d</th><td>숫자 하나를 찾습니다.</td></tr>
+							<tr><th scope="row">\D</th><td>숫자가 아닌 문자 하나를 찾습니다.</td></tr>
+							<tr><th scope="row">\s</th><td>공백 문자(스페이스)를 찾습니다.</td></tr>
+							<tr><th scope="row">[0-9][A-Z][a-z]</th><td>숫자, 대문자 영문, 소문자 영문을 찾습니다.</td></tr>
+							<tr><th scope="row">\w</th><td>알파벳, 숫자, 밑줄(_)기호를 찾습니다.</td></tr>
+							<tr><th scope="row">\W</th><td>알파벳, 숫자, 밑줄(_)기호를 제외한 문자를 찾습니다.</td></tr>
+							<tr><th scope="row">a|b</th><td>a 또는 b인지 검사할 때 사용합니다.</td></tr>
+						</tbody>
+					</table><!-- 정규 표현 검색 옵션 END -->
+					<table summary="정규 표현 메서드" class="ex_t">
+						<caption>정규 표현 메서드</caption>
+						<colgroup><col width="30%"/><col width="70%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">test()</th><td>지정된 규칙에 맞는 단어가 있으면 true 값을 반환합니다.</td></tr>
+							<tr><th scope="row">exec()</th><td>지정된 규칙에 맞는 단어가 있으면 해당 단어를 반환합니다.</td></tr>
+						</tbody>
+					</table><!-- 정규 표현 메서드 END -->
+					<input type="button" id="regexp1" name="regexp1" value="정규 표현 예제1" class="btn_normal" onclick="regexp1()"/>
+					<p id="result_reg1"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+					function regexp1(){
+						var str="Hello World!";
+						var reg1=/world/; 
+						//var reg1=new RegExp("world"); 랑 같음
+						var reg2=/world/i;
+						//var reg2=new RegExp("world","i"); 랑 같음. 대소문자 구분하지않는 옵션 
+
+						var result_1=reg1.test(str);
+						var result_2=reg2.test(str);
+
+						document.getElementById("result_reg1").innerHTML=result_1+"<br/>"+result_2+"<br/>";
+					}
+					//]]>
+					</script><!-- 정규 표현 객체 1 END -->
+					<input type="button" id="regexp2" name="regexp2" value="정규 표현 예제2_유효성 검사" class="btn_normal" onclick="regexp2()"/>
+					<p id="result_reg2"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+					function regexp2(){
+						var reg1=/^[가-힣]{2,5}$/;
+						var reg2=/^(010|016|011)\d{3,4}\d{4}$/;
+						var reg3=/^\w{5,12}@[a-z]{2,10}[\.][a-z]{2,3}[\.]?[a-z]{0,2}$/;
+						//검사 기준
+						//reg1: 시작부터 끝까지 한글로 2-5자로 구성되도록
+						//reg2: 앞에 숫자3개로 구성되도록 \ 숫자3-4개로 구성되도록 \ 숫자4개가 올 수 있게
+						//reg3: 알파벳,숫자,밑줄 5-12개로 구성되도록, @들어가도록, 알파벳2-10개로 구성되도록, .다음에 a-z까지 2-3개로 구성되도록, .이 1개만 있거나 없도록, a-z까지 0-2개가 있도록
+
+						var userName=prompt("당신의 이름은?");
+						while(true){
+							if( reg1.test(userName) ) break;
+							alert("이름 입력 형식이 잘못되었습니다.");
+							userName=prompt("당신의 이름은?");
+						}
+
+						var userCell=prompt("당신의 휴대폰 번호는?");
+						while(true){
+							if( reg2.test(userCell) ) break;
+							alert("휴대폰 입력 형식이 잘못되었습니다.");
+							userCell=prompt("당신의 휴대폰 번호는?");
+						}
+
+						var userEmail=prompt("당신의 이메일은?");
+						while(true){
+							if( reg3.test(userEmail) ) break;
+							alert("이메일 입력 형식이 잘못되었습니다.");
+							userEmail=prompt("당신의 이메일은?");
+						}
+
+						document.getElementById("result_reg2").innerHTML=userName+"<br/>"+userCell+"<br/>"+userEmail+"<br/>";
+					}
+					//]]>
+					</script>
+				</div><!-- 정규 표현 객체 END -->		
+				
+				<!-- 총정리 -->
+				<div class="theory">
+					<h4>총정리 실습</h4>
+					<p>현재 월에 해당하는 달력 출력하기</p>
+					<input type="button" id="total1" name="total1" value="총정리 실습" class="btn_total" onclick="total1()"/>
+					<p id="result_total"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+					function total1(){
+						//1. 현재 날짜 연, 월, 일 생성: date, y, m, d
+						//2. 현재 월의 1일, 그 날의 요일 구하기: theDate, theDay
+						//3. 현재 월의 마지막 일을 구하기: last, lastDate, 윤달은 4년마다이고 100년마다는 아니고, 400년마다이다
+						//4. 현재 월의 달력에 필요한 행의 개수 구하기:row, (날짜(0-6)+전체 일수)/7 : 이 값의 올림	 
+						//5. 달력 연도/월 표기 및 달력 테이블을 생성하기: calendar, 달력 일수 초깃값 cDay
+						//6. 문자로 결합된 달력 테이블을 문서에 출력
+						
+						//1. 현재 날짜 연, 월, 일 생성
+						var date=new Date(); //날짜 객체 생성
+						var y=date.getFullYear(); //현재 연도
+						var m=date.getMonth(); //현재 월; 0-11
+						var d=date.getDate(); //현재 일
+						//2. 현재 월의 1일, 그 날의 요일 구하기: theDate, theDay
+						var theDate=new Date(y,m,1);
+						var theDay=theDate.getDay();
+						//3. 현재 월의 마지막 일을 구하기: lastDate, 각 달의 일수 배열 last, 윤달은 4년마다이고 100년마다는 아니고, 400년마다이다
+						var last=[31,28,31,30,31,30,31,31,30,31,30,31];
+						if( y%4 && y%100!=0 || y%400==0 ) lastDate=last[1]=29;
+						var lastDate=last[m];
+						//4. 현재 월의 달력에 필요한 행의 개수 구하기:row, (날짜(0-6)+전체 일수)/7 : 이 값의 올림	 
+						var row=Math.ceil( (theDay+lastDate)/7 );
+						//5. 달력 연도/월 표기 및 달력 테이블을 생성하기: calendar, 달력 일수 초깃값 cDay
+						var calendar="<table summary='이번 달 달력' class='ex_t'>";
+						calendar+="<caption>"+y+"년도"+(m+1)+"월 달력"+"</caption>";
+						calendar+="<thead><tr>";
+						calendar+="<th scope='col'>일</th>";
+						calendar+="<th scope='col'>월</th>";
+						calendar+="<th scope='col'>화</th>";
+						calendar+="<th scope='col'>수</th>";
+						calendar+="<th scope='col'>목</th>";
+						calendar+="<th scope='col'>금</th>";
+						calendar+="<th scope='col'>토</th>";
+						calendar+="</tr></thead>";
+						calendar+="<tbody>";
+						var cDay=1;
+						//안의 칸들은 for문으로 출력
+						for(var r=1; r<=row; r++){
+							calendar+="<tr>";
+							for(var d=1; d<=7; d++){
+								 //행이 첫줄이고 현재 월의 1일 이전 요일 이거나, 또는 날짜가 마지막 날 보다 큰 경우는 
+								 //빈칸 
+								if( r==1 && d<=theDay || cDay>lastDate ){
+									calendar+="<td>&nbsp;</td>";
+								}else{
+									calendar+="<td>"+cDay+"</td>";
+									cDay++;
+								}
+							}//안쪽 for문 END
+							calendar+="</tr>";
+						}//이중 for문 END
+						calendar+="</tbody>";
+						calendar+="</table>";
+						//6. 문자로 결합된 달력 테이블을 문서에 출력
+						document.getElementById("result_total").innerHTML=calendar;
+					}//function END
+					//]]>
+					</script><!-- 총정리 script END -->
+				</div><!-- 총정리 END -->
+			</div><!-- container END -->
+		</div><!-- main END -->
+
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+
+		<!-- top 버튼 -->
+		<p class="top"><a href="#" title="상단으로 이동"><img src="img/arrow_top_w.png" alt="위로"/></a></p><!-- top 버튼 END -->
+
+	</div><!-- wrapper END -->
+ </body>
+
+</html>

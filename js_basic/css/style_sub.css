@@ -1,0 +1,25 @@
+/* main */
+h3{ margin:50px 0 20px 0; text-indent:5px; font-size:25px; color:#141517; }
+h4{ margin:25px 0 10px 0; text-indent:15px; font-size:20px; border-bottom:1px solid #f3f3f3; padding:5px 0px; color:#646c6f; }
+h5{ margin:18px 0 10px 0; text-indent:18px; font-size:15px; padding:5px 0px; color:#333; }
+.theory{ margin:30px 0; }
+input[type="button"]{ display:block; height:35px; border:0 none; color:#fff; margin:15px 5px; padding:10px; cursor:pointer; }
+.btn_normal{ background-color:#141517; }
+.btn_total{ background-color:#335e80; }
+.ex{ width:1000px; overflow:hidden; margin:20px 0; padding:20px; background-color:#f9f9f9; }
+.ex dl.w32{ width:32%; float:left; }
+.ex dl.w48{ width:48%; float:left; }
+.ex dl dt{ font-weight:bold; margin-bottom:10px; }
+.ex_li li{ list-style-type:none; margin:5px 0 5px 20px; }
+.ex_li_num li{ list-style-type:decimal; margin-left:20px }
+.ex_t{ border-collapse:separate; border-spacing:0px; margin:30px 0; }
+.ex_t caption{ margin-bottom:8px; font-weight:bold; }
+.ex_t thead th, .ex_t tbody th{ border-bottom:1px solid #f0f0f0; background-color:#f9f9f9; height:35px; } 
+.ex_t thead td, .ex_t tbody td{ border-bottom:1px solid #f0f0f0; border-right:1px solid #f0f0f0; height:35px; }
+.img_box{ width:60%; margin:45px 0; }
+.img_box img{ width:100%; }
+
+#footer p{ padding-top:40px; color:#fff; }
+.top{ width:40px; height:40px; position:fixed; right:50px; bottom:130px; z-index:10; }
+.top > a{ display:block; width:100%; height:100%; background-color:#333; text-align:center; border-radius:50%; }
+.top > a > img{ width:10px; height:20px; margin:10px; }

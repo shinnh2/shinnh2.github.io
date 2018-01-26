@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, user-scalable=no"> 
+ <title>JAVASCRIPT 공부_SNH</title>
+ <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+ <link rel="stylesheet" type="text/css" href="css/base.css"/>
+ <link rel="stylesheet" type="text/css" href="css/layout_main.css"/>
+ <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+ <link rel="stylesheet" type="text/css" href="css/style_main.css"/>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="js/gnb.js"></script>
+</head>
+    
+<body>   
+	<script>
+	$(document).ready(function(){
+		var userHeight=screen.height;
+		console.log(typeof(userHeight), userHeight);
+		$("#visual").css({"height":userHeight+"px"});
+	});
+	</script>
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="snh_js_02.html" title="연산자">연산자</a></li><!-- 연산자 END -->
+						<li><a href="snh_js_03.html" title="제어문">제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="객체">객체</a>
+							<ul class="sub">
+								<li><a href="snh_js_04.html" title="객체란">객체란</a></li>
+								<li><a href="snh_js_04_01.html" title="내장 객체">내장 객체</a></li>
+								<li><a href="snh_js_04_02.html" title="브라우저 객체 모델">BOM</a></li>
+								<li><a href="snh_js_04_03.html" title="문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+		<div id="visual">
+			<div class="container">
+				<div class="cont_box">
+					<p>JAVASCRIPT</p>
+					<p>JQUERY</p>	
+					<p class="desc">javascript 입문, jQuery 입문을 이론, 실습과 함께 정리했습니다.</p>
+				</div><!-- content box END -->
+			</div><!-- container END -->
+		</div><!-- visual END -->
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+	</div><!-- wrapper END -->
+</body>
+</html>

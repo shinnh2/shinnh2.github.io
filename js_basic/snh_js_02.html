@@ -1,0 +1,258 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>연산자_JS입문_SNH</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/layout_sub.css"/>
+  <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style_sub.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/gnb.js"></script>	
+  <script src="js/top.js"></script>
+ </head>
+
+ <body>
+	<div id="wrapper">
+
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="#" title="1. 연산자">1. 연산자</a></li><!-- 연산자 END -->
+						<li><a href="#" title="2. 제어문">2. 제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="3. 객체">3. 객체</a>
+							<ul class="sub">
+								<li><a href="#" title="3-1. 객체란">객체란</a></li>
+								<li><a href="#" title="3-2. 내장 객체">내장 객체</a></li>
+								<li><a href="#" title="3-3. 브라우저 객체 모델">BOM</a></li>
+								<li><a href="#" title="3-4. 문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+
+		<div id="main">
+			<div class="container">
+				<!-- 연산자 -->
+				<div class="theory">
+					<h3>연산자 이론</h3>
+
+					<h4>연산자의 우선순위</h4>
+					<dl>
+						<dt>연산자 우선순위</dt>
+						<dd>1. ( )</dd>
+						<dd>2. 단항 연산자(--, ++, !)</dd>
+						<dd>3. 산술 연산자(*, /, %, +, -)</dd>
+						<dd>4. 비교 연산자(&gt;, &gt;=, &lt;, &lt;=, ==, ===, !==)</dd>
+						<dd>5. 논리 연산자(&&, ||)</dd>
+						<dd>6. 대입(복합 대입)연산자(=, +=, -=, *=, /=, %=)</dd>
+					</dl>
+
+					<h4>산술 연산자</h4>
+					<script type="text/javascript">
+					//<![CDATA[
+						//연산자를 사용하기 전에 변수 선언하기
+						var num1=15;
+						var num2=2;
+						var result;
+						console.log(typeof(result));
+						document.write("<strong>num1의 값: ",num1," / num2의 값: ",num2," / 현재result값: ",result,"</strong><br/>");  //변수 상태. 출력값은 undefined
+						
+						//더하기 후 result에 저장
+						result=num1+num2;
+						document.write("더하기 후 result값: ", result,"<br/>"); //출력값은 17
+						//빼기 후 result에 저장
+						result=num1-num2;
+						document.write("빼기 후 result값: ", result,"<br/>"); //출력값은 13
+						//곱하기 후 result에 저장
+						result=num1*num2;
+						document.write("곱하기 후 result값: ", result,"<br/>"); //출력값은 30
+						//나누기 후 result에 저장
+						result=num1/num2;
+						document.write("나누기 후 result값: ", result,"<br/>"); //출력값은 7.5
+						//나머지 연산 후 result에 저장
+						result=num1%num2;
+						document.write("나머지 연산 후 result값: ", result,"<br/>"); //출력값은 1
+					//]]>
+					</script><!-- 산술 연산자 script END -->
+
+					<h4>대입 연산자</h4>
+					<script type="text/javascript">
+					//<![CDATA[
+						//변수 선언: 변수 num1에 10, 변수 num2에는 3을 저장합니다.
+						var num1=10;
+						var num2=3;
+						document.write("<strong>num1의 값: ", num1, " / num2의 값: ", num2,"</strong><br/>");
+						//A+=B
+						//A+B한 값을 A에 저장한다.
+						num1+=num2;
+						document.write("num1+=num2 후 num1의 값: ", num1,"<br/>"); //결과값: 13
+						//A-=B
+						//A-B한 값을 A에 저장한다.
+						num1-=num2;
+						document.write("num1-=num2 후 num1의 값: ", num1,"<br/>"); //결과값: 10
+						//A*=B 
+						//A*B한 값을 A에 저장한다.
+						num1*=num2;
+						document.write("num1*=num2 후 num1의 값: ", num1, "<br/>"); //결과값: 30
+						//A%=B
+						//A%B한 값을 A에 저장한다.
+						num1%=num2;
+						document.write("num1%=num2 후 num1의 값: ", num1, "<br/>"); //결과값: 0
+					//]]>
+					</script><!-- 대입 연산자 script END -->
+
+					<h4>증감 연산자</h4>
+					<script type="text/javascript">
+					//<![CDATA[
+						//변수 선언: 변수 num1에 10, 변수 num2에 20을 저장한다. 변수 result는 선언만 한다. 
+						var num1=10;
+						var num2=20;
+						var result=null;
+						console.log(typeof(result));
+						document.write("<strong>num1의 값: ", num1, " / num2의 값: ", num2, " / 현재 result의 값: ", result, "</strong><br/>");
+						
+						//A--  변수A의 데이터가 1감소
+						num1--;
+						document.write("num1-- 후의 값: ", num1, "<br/>"); //결과값: 9
+						//A++ 변수A의 데이터가 1증가
+						num1++;
+						document.write("num1++ 후의 값: ", num1, "<br/>"); //결과값: 10
+						//B=A++; 대입 연산자가 먼저 실행되고, 증감 연산자가 실행됩니다.
+						result=num2++;
+						document.write("result=num2++ 후의 값: ", result, "<br/>"); //결과값: 20
+						//B=++A; 증감 연산자가 먼저 발생되고, 대입 연산자가 실행됩니다.
+						result=++num2;
+						document.write("result=++num2 후의 값: ", result, "<br/>");
+					//]]>
+					</script><!-- 증감 연산자 script END -->
+
+					<h4>비교 연산자</h4>
+					<script type="text/javascript">
+					//<![CDATA[
+						//변수 선언 
+						var a=10;
+						var b=20;
+						var c=10;
+						var f="20"; //문자형
+						var result;
+						console.log(typeof(result));
+						document.write("<strong>a=", a, " / b=", b, " / c=", c, " / f=", f, "현재 result의 값: ", result, "</strong><br/>");
+
+						//A>B : A가 B보다 크다
+						result=a>b;
+						document.write("result=a&gt;b 결과: ", result, "<br/>"); //결과: false
+						//A<B : B가 A보다 크다
+						result=a<b;
+						document.write("result=a&lt;b 결과: ", result, "<br/>"); //결과: true
+						//A<=B : A가 B보다 작거나 같다
+						result=a<=b;
+						document.write("result=a&lt;=b 결과: ", result, "<br/>"); //결과: true
+						//A==B : 데이터형과 상관없이 A와 B는 같다
+						result=b==f;
+						document.write("result=b==f 결과: ", result,"<br/>"); //결과: true
+						//A!=B : 데이터형과 상관없이 A와 B의 내용이 다르다
+						result=a!=b;
+						document.write("result=a!=b 결과: ", result, "<br/>"); //결과: true
+						//A===B: 데이터형과 내용이 A와 B가 같다
+						result=b===f;
+						document.write("result=b===f 결과: ", result, "<br/>"); //결과: false
+					//]]>
+					</script><!-- 비교 연산자 script END -->
+
+					<h4>논리 연산자</h4>
+					<p>논리 연산자의 종류: ||, &&, !</p>
+					<script type="text/javascript">
+					//<![CDATA[
+						//변수 선언
+						var a=10;
+						var b=20;
+						var m=30;
+						var n=40;
+						var result;
+						console.log(typeof(result));
+						document.write("<strong>a=", a, " / b=", b, " / m=", m, " / n=", n, "현재 result의 값: ", result, "</strong><br/>");
+
+						var result;
+						result= a>b || b>=m || m>n; //false || false || false
+						document.write("result= a>b || b>=m || m>n : ", result,"<br/>"); //false
+
+						result= a>b || b>=m || m<=n; //false || false ||true
+						document.write("result= a>b || b>=m || m<=n : ", result,"<br/>"); //true
+
+						result= a<=b && b>=m && m<=n; //true && false && true
+						document.write("result= a<=b && b>=m && m<=n : ", result, "<br/>"); //false
+
+						result= a<=b && b<=m && m<=n; //true && true && true
+						document.write("result= a<=b && b<=m && m<=n : ", result, "<br/>"); //true
+
+						result= !(a>b); //!false
+						document.write("result= !(a>b) : ", result, "<br/>"); //true
+					//]]>
+					</script><!-- 논리 연산자, 연산자 우선순위 script END -->
+
+					<h4>삼항 조건 연산자</h4>
+					<p>삼항 조건 연산자는 조건식(true 또는 flase의 결괏값을 반환)의 데이터 결과에 따라 실행 결과가 달라집니다. 삼항 조건 연산자는 연산하기 위해서 피연산자가 3개 필요한 삼항 연산자입니다.</p>
+					<p>삼항 조건 연산자는 연산한 결과 조건식의 만족 여부에 따라 실행하는 스크립트의 코드를 다르게 실행하고자 할 때 사용합니다.</p>
+					<p>기본형) 조건식?실행문1:실행문2;</p>
+					<p>예시) 입력받은 나잇값이 20세 이상이면 '성인'이라 출력되게 하고, 미만일 경우 '미성년자'라고 출력하고자 할 때 사용</p>
+					<script type="text/javascript">
+					//<![CDATA[
+						var a=10;
+						var b=3;
+
+						//변수 result에 삼항 조건 연산의 결괏값이 저장됩니다.
+						var result= a>b? "javascript":"hello";
+						document.write(" result= a>b? 'javascript':'hello' 라고 입력함<br/>", result,"<br/>");
+						// 10>3=true이므로 실행문 1인 "javascript"를 출력합니다.
+					//]]>
+					</script><!-- 삼항 조건 연산자 script END -->
+				</div><!-- 연산자 END -->
+
+				<!-- 총정리 실습 -->
+				<div class="theory">
+					<h3>연산자 총정리 실습</h3>
+					<h4>적정 체중 구하는 계산기</h4>
+					<p>다음 버튼을 누르면 나의 적정 체중을 알 수 있습니다.</p>
+					<p>계산법: 적정 체중=(본인 신장-100)*0.9</p>
+					<input type="button" value="나의 적정체중 알아보기!" id="btnResult" onclick="normalWeight()" class="btn_total"/>
+					<script type="text/javascript">
+					//<![CDATA[			
+						function normalWeight(){
+							//변수 선언
+							var userHeight=prompt("당신의 신장을 입력하세요.","0");
+							//적정체중 계산식
+							var normalW=(userHeight-100)*0.9;
+							alert("당신의 적정 체중은"+normalW+"입니다.");
+						}
+					//]]>
+					</script><!-- 적정 체중 구하기 script END -->
+				</div><!-- 총정리 실습 END -->		
+			</div><!-- container END -->		
+		</div><!-- main END -->
+
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+		<!-- top 버튼 -->
+
+		<p class="top"><a href="#" title="상단으로 이동"><img src="img/arrow_top_w.png" alt="위로"/></a></p><!-- top 버튼 END -->
+
+	</div><!-- wrapper END -->
+ </body>
+
+</html>

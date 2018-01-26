@@ -1,0 +1,4 @@
+/* base.css */ 
+a:link, a:visited{ color:#000; text-decoration:none; }
+a:hover, a:focus{ color:#000; text-decoration:none; }
+body{ font-family:"Malgun Gothic", dotum, sans-serif; font-size:90%; color:#323a3d; background-color:#fff; }

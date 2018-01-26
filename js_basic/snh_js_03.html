@@ -1,0 +1,404 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>제어문_jS입문_SNH</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/layout_sub.css"/>
+  <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style_sub.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/gnb.js"></script>	
+  <script src="js/top.js"></script>
+ </head>
+
+ <body>
+	<div id="wrapper">
+
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="#" title="1. 연산자">1. 연산자</a></li><!-- 연산자 END -->
+						<li><a href="#" title="2. 제어문">2. 제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="3. 객체">3. 객체</a>
+							<ul class="sub">
+								<li><a href="#" title="3-1. 객체란">객체란</a></li>
+								<li><a href="#" title="3-2. 내장 객체">내장 객체</a></li>
+								<li><a href="#" title="3-3. 브라우저 객체 모델">BOM</a></li>
+								<li><a href="#" title="3-4. 문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+
+		<div id="main">
+			<div class="container">
+				<h3>제어문</h3>
+				<p>제어문의 종류: 조건문, 선택문, 반복문</p>
+
+				<!-- 조건문: if, else, else if -->
+				<div class="theory">
+					<h4>조건문: if, else, else if</h4>
+					<p>다음 값은 조건식에 false를 반환합니다: 0, null, ""(빈 문자), undefined</p>
+
+					<input type="button" id="ifelse" name="ifelse" value="if, else 예제 보기" onclick="ifelse()" class="btn_normal"/>
+					<p id="result1"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						/* 확인을 누르면 변수 result에 true가 저장되고, 취소 버튼을 누르면 변수 result에 false가 저장됩니다*/
+						function ifelse(){
+							var result1=confirm("정말로 회원을 탈퇴하시겠습니까?");
+							if(result1){
+								document.getElementById("result1").innerHTML="탈퇴 처리되었습니다!";
+							}else{
+								document.getElementById("result1").innerHTML="탈퇴가 취소되었습니다.";
+							}
+						}
+					//]]>
+					</script><!-- 조건문 if, else 실습 END -->				
+
+					<input type="button" id="elseif" name="elseif" value="else if 예제 보기" onclick="elseif()" class="btn_normal"/>
+					<p id="result2"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						function elseif(){
+							var mon=prompt("현재는 몇 월입니까?","0");
+							if( mon>=9 && mon<=11 ){ document.getElementById("result2").innerHTML="독서의 계절 가을이네요!"; }
+							else if( mon>=6 && mon<=8 ){ document.getElementById("result2").innerHTML="여행 가기 좋은 여름이네요!"; }
+							else if( mon>=3 && mon<=5 ){ document.getElementById("result2").innerHTML="햇살 가득한 봄이네요!"; }
+							else{ document.getElementById("result2").innerHTML="스키의 계절 겨울이네요!"; }
+						}
+					//]]>
+					</script><!-- 조건문 else if 실습 END -->		
+
+					<input type="button" id="ifif" name="ifif" value="if 안의 if" onclick="ifif()" class="btn_normal"/>
+					<p id="result3"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						function ifif(){
+							var id="id1234";
+							var pw="12345";
+
+							var user_id=prompt("아이디는?","id1234");
+							var user_pw=prompt("비밀번호는?","12345");
+
+							if( id==user_id ){
+								if( pw==user_pw ){ document.getElementById("result3").innerHTML=user_id+"님 반갑습니다."; }
+								else{ alert("비밀번호가 일치하지 않습니다."); location.reload(); }
+							}else{
+								alert("아이디가 일치하지 않습니다.");
+								document.getElementById("result3").innerHTML="아이디를 다시 입력해주세요.";
+								location.reload();
+							}
+						}
+					//]]>
+					</script>		
+				</div><!-- 조건문: if, else, else if END -->
+
+				<!-- switch -->
+				<div class="theory">
+					<h4>선택문: switch</h4>
+
+					<input type="button" id="switch" name="switch" value="switch 예제 보기" onclick="switch_()" class="btn_normal"/>
+					<p id="result4"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						function switch_(){
+							var site=prompt("다음 중 하나를 입력하시면 해당 포털이 실행됩니다.","네이버, 다음, 구글, 네이트 중 택1");
+							var url;
+							switch(site){
+								case "네이버": url="www.naver.com";
+								break;
+
+								case "다음" : url="www.daum.net";
+								break;
+
+								case "구글" : url="www.google.com";
+								break;
+
+								case "네이트" : url="www.nate.com";
+								break;
+
+								default : alert("보기 중에 없는 사이트입니다.");
+							}
+							if(url){ location.href="http://"+url; }
+						}	
+					//]]>
+					</script><!-- switch 예제 script END -->
+				</div><!-- switch END -->
+
+				<!-- 반복문: while, do while, for -->
+				<div class="theory">
+					<h4>반복문: while, do while, for</h4>
+					<ul class="ex_li">
+						<li>while: 특정한 조건을 만족할 때가지 실행문을 반복하여 실행한다.</li>
+						<li>do while: 조건에 상관없이 최소 한 번 실행문을 실행하고 조건식을 검사한다.</li>
+						<li>for: 조건식을 만족할 때까지 특정 실행문을 반복하여 실행하되, 몇 번 실행하는지 정할 수 있다.</li>
+						<li>break: 반복문에서 실행하면 조건식과 상관없이 강제로 반복문을 종료시킨다.(원하는 부분 다음부터 출력하지 않을 수 있다.)</li>
+						<li>
+							continue: 반복문에서만 사용가능하며(원하는 부분만 선택적으로 출력할 수 있다.),<br/>
+							while문의 경우 continue다음의 실행문을 무시하고 바로 조건식으로 이동해 조건 검사를 수행한다.<br/>
+							for문의 경우 continue 다음의 실행문을 무시하고 바로 증감식으로 이동해 증감 연산을 실행한다.
+						</li>
+					</ul>
+					<div class="ex">
+						<dl class="w32">
+							<dt>while 기본형</dt>
+							<dd>
+								var 변수=초깃값;<br/>
+								while(조건식){ <br/>
+									&nbsp;&nbsp;실행문;<br/>
+									&nbsp;&nbsp;증감식;<br/> 
+								}
+							</dd>
+						</dl>
+						<dl class="w32">
+							<dt>do while 기본형</dt>
+							<dd>
+								var 변수=초깃값;<br/>
+								do{<br/>
+									&nbsp;&nbsp;실행문;<br/>
+									&nbsp;&nbsp;증감식;<br/>
+								}while(조건식)
+							</dd>
+						</dl>
+						<dl class="w32">
+							<dt>for문 기본형</dt>
+							<dd>
+								for(초깃값; 조건식; 증감식){<br/>
+									&nbsp;&nbsp;실행문;<br/>
+								}
+							</dd>
+						</dl>
+					</div><!-- ex END -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>break문 기본형 - for문에서</dt>
+							<dd>
+								for(초깃값; 조건식; 증감식){<br/>
+									&nbsp;&nbsp;break; //반복문을 강제로 종료합니다.<br/>
+									&nbsp;&nbsp;실행문;<br/>
+								}
+							</dd>
+						</dl>
+						<dl class="w48">
+							<dt>break문 기본형 - while문에서</dt>
+							<dd>
+								var 변수=초깃값;<br/>
+								while(조건식){<br/>
+									&nbsp;&nbsp;break; //반복문을 강제로 종료합니다.<br/>
+									실행문;<br/>
+									증감식;<br/>
+								}
+							</dd>
+						</dl>
+					</div><!-- ex END -->
+					<div class="ex">
+						<dl class="w48">
+							<dt>continue문 기본형 - for문에서</dt>
+							<dd>
+								for(초깃값; 조건식; 증감식){<br/>
+									continue; //다음에 오는 실행문은 무시하고 바로 증감식으로 이동<br/>
+									실행문;<br/>
+								}
+							</dd>
+						</dl>
+						<dl class="w48">
+							<dt>continue문 기본형 - while문에서</dt>
+							<dd>
+								var 변수=초깃값;<br/>
+								while(조건식){<br/>
+									&nbsp;&nbsp;증감식;<br/>
+									&nbsp;&nbsp;continue; //다음에 오는 실행문은 무시하고 바로 조건식으로 이동<br/>
+									실행문;<br/>
+								}
+							</dd>
+						</dl>
+					</div><!-- ex END -->
+
+					<input type="button" id="while" name="while" value="while 예제 보기" onclick="while_()"; class="btn_normal"/>
+					<p id="result_w"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						function while_(){
+							var i=20;
+							while(i>=10){
+								var font=document.createElement("span");
+								var br=document.createElement("br");
+								font.innerHTML=i;
+								if(i%2==0){ 
+									
+									document.getElementById("result_w").appendChild(font);
+									font.style.color="red";
+									document.getElementById("result_w").appendChild(br);
+								}else{ 
+									
+									document.getElementById("result_w").appendChild(font);
+									font.style.color="blue";
+									document.getElementById("result_w").appendChild(br);
+								}
+								i--;
+							}
+						}
+					//]]>
+					</script><!-- while 예제 script END -->
+
+					<input type="button" id="dowhile" name="dowhile" value="do while 예제 보기" onclick="dowhile_()"; class="btn_normal"/>
+					<p id="result_dw"></p>
+					<script>
+					//<![CDATA[
+						function dowhile_(){
+							var i=10;
+							//변수 i에 초깃값을 저장합니다.
+							do{
+								document.getElementById("result_dw").innerHTML()="hello, world!";
+							}while(i<3)//변수 i에 값이 3보다 크면 while문을 종료합니다.
+						}
+						//실행문을 한 번은 실행하고, 조건식이 false므로 두번째부터는 출력하지 않습니다.
+					//]]>
+					</script><!-- do while 예제 script END -->
+
+					<input type="button" id="for" name="for" value="for 예제 보기" onclick="for_()" class="btn_normal"/>
+					<p id="result_f"></p>
+					<script>
+					//<![CDATA[
+					/* 1부터 100까지의 숫자를 나타내되, 5의 배수는 빨간색, 7의 배수는 초록색, 5와 7의 공배수는 파란색으로 출력되게 합니다.*/
+					function for_(){
+						for(var i=1; i<=100; i++){
+							var n_span=document.createElement("span");
+							var br=document.createElement("br");
+							n_span.innerHTML=i;
+							document.getElementById("result_f").appendChild(n_span);
+							if(i%5==0 && i%7!=0){ 
+								//5의 배수이고 7의 배수가 아닌 경우						
+								n_span.style.color="red";
+							}else if(i%5!=0 && i%7==0){
+								//5의 배수가 아니고 7의 배수인 경우
+								n_span.style.color="green";
+							}else if(i%5==0 && i%7==0){
+								//5와 7의 공배수인 경우
+								n_span.style.color="blue";
+							}
+							if(i%10==0){
+								document.getElementById("result_f").appendChild(br);
+							}
+						}
+					}
+					//]]>
+					</script><!-- for 예제 script END -->
+
+					<input type="button" id="fif" name="fif" value="중첩 for 예제 보기" onclick="fif()" class="btn_normal"/>
+					<p id="result_fif"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						function fif(){
+							var num=1;
+							var t="<table border='1'>";
+							for(var i=1; i<=4; i++){
+								t+="<tr>";
+								for(var k=1; k<=3; k++){
+									t+="<td>"+num+"</td>";
+									num++;
+								}
+								t+="</tr>";
+							}
+							t+="</table>";
+							document.getElementById("result_fif").innerHTML=t;
+						}	
+					//]]>
+					</script>
+				</div><!-- 반복문: while, do while, for END -->
+
+				<!-- 총정리 -->
+				<div class="theory">
+					<h4>총정리 실습</h4>
+					<p>현재 연도와 월에 해당하는 전체 일자 출력하기</p>
+					<input type="button" id="total" name="total" value="총정리 실습" onclick="total()" class="btn_total"/>
+					<p id="result_total"></p>
+					<script type="text/javascript">
+					//<![CDATA[
+						function total(){
+							//현재 연도와 월을 입력받습니다.
+							var year=prompt("현재 몇 년입니까?","0000");
+							var mon=prompt("현재 몇 월입니까?","0");
+							var last_day;
+							// 현재 월이 며칠까지 있는지 선택문을 이용해 구합니다.
+							switch (mon){
+								case "1":last_day=31;
+								break;
+
+								case "2":last_day=28;
+								if(year%4==0 && year%100!=0 || year%400==0){ last_day=29; }
+								break;
+								//4년 주기이고 100년 주기는 아닌 경우, 또는 400년 주기인 경우 2월이 29일
+
+								case "3":last_day=31;
+								break;
+
+								case "4":last_day=30;
+								break;
+
+								case "5":last_day=31;
+								break;
+
+								case "6":last_day=30;
+								break;
+
+								case "7":last_day=31;
+								break;
+
+								case "8":last_day=31;
+								break;
+
+								case "9":last_day=30;
+								break;
+
+								case "10":last_day=31;
+								break;
+
+								case "11":last_day=30;
+								break;
+
+								case "12":last_day=31;
+								break;
+							}
+							
+							var cal="<table border='1'><tr>";
+							for(var i=1; i<=last_day; i++){
+								cal+="<td>"+i+"</td>";
+							}
+							cal+="</tr></table>";
+
+							document.getElementById("result_total").innerHTML=cal;
+						}
+					//]]>
+					</script><!-- total script END -->
+				</div><!-- 총정리 실습 END -->		
+			</div><!-- container END -->		
+		</div><!-- main END -->
+
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+
+		<!-- top 버튼 -->
+		<p class="top"><a href="#" title="상단으로 이동"><img src="img/arrow_top_w.png" alt="위로"/></a></p><!-- top 버튼 END -->
+
+	</div><!-- wrapper END -->
+ </body>
+
+</html>
