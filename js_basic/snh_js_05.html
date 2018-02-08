@@ -1,0 +1,129 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>함수_JS입문_SNH</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/base.css"/>
+  <link rel="stylesheet" type="text/css" href="css/layout_sub.css"/>
+  <link rel="stylesheet" type="text/css" href="css/gnb.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style_sub.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/gnb.js"></script>	
+  <script src="js/top.js"></script>
+ </head>
+
+ <body>
+	<div id="wrapper">
+
+		<header id="header">
+			<div class="container">
+				<h1><a href="#" title="javascript 메인페이지"><img src="img/home_w.png" alt="메인 바로가기"/></a></h1>
+				<nav>
+					<h2 class="hidden">주메뉴</h2>
+					<p class="menu_btn b1"><a href="#" title="전체메뉴"><img src="img/all_menu_w.png" alt="전체메뉴"/></a></p>
+					<ul class="gnb">
+						<p class="menu_btn b2"><a href="#" title="전체메뉴 닫기"><img src="img/close.png" alt="전체메뉴"/></a></p>
+						<li><a href="snh_js_02.html" title="연산자">연산자</a></li><!-- 연산자 END -->
+						<li><a href="snh_js_03.html" title="제어문">제어문</a></li><!-- 제어문 END -->
+						<li>
+							<a href="#" title="객체">객체</a>
+							<ul class="sub">
+								<li><a href="snh_js_04.html" title="객체란">객체란</a></li>
+								<li><a href="snh_js_04_01.html" title="내장 객체">내장 객체</a></li>
+								<li><a href="snh_js_04_02.html" title="브라우저 객체 모델">BOM</a></li>
+								<li><a href="snh_js_04_03.html" title="문서 객체 모델">DOM</a></li>
+							</ul>
+						</li><!-- 객체 END -->
+					</ul><!-- gnb END -->
+				</nav>
+			</div><!-- container END -->
+		</header><!-- header END -->
+
+		<div id="main">
+			<div class="container">
+				<h3>함수</h3>
+				<p>데이터만 저장할 수 있는 변수와 달리 실행문을 저장할 수 있음</p>
+				<p>함수를 호출해야 실행문이 실행된다.</p>
+				<ul class="ex_li_num">
+					<li>함수 기본</li>
+					<li>내장 함수</li>
+				</ul>
+
+				<!-- 1. 함수 기본 -->
+				<div class="theory">
+					<h4>1. 함수 기본</h4>
+					<div class="ex">
+						<dl class="w32">
+							<dt>함수 기본형1-함수 정의문</dt>
+							<dd>function 함수명(){<dd>
+							<dd>&nbsp;&nbsp;실행문;</dd>
+							<dd>}</dd>
+						</dl>
+						<dl class="w32">
+							<dt>함수 기본형2-익명적 함수</dt>
+							<dd>참조 변수=function (){<dd>
+							<dd>&nbsp;&nbsp;실행문;</dd>
+							<dd>}</dd>
+						</dl>
+						<dl class="w32">
+							<dt>함수 실행 기본형</dt>
+							<dd>함수명();<dd>
+							<dd>또는 참조 변수();</dd>
+						</dl>
+					</div><!-- 함수 정의 기본형 END -->
+					<p>함수 정의와 달리 매개 변수가 있는 함수는 변수를 받아서 함수를 실행할 수 있다.</p>
+					<div class="ex">
+						<dl class="w48">
+							<dt>매개 함수 정의 기본형</dt>
+							<dd>function 함수명(매개 변수1, 매개 변수2, ...매개 변수n){<dd>
+							<dd>&nbsp;&nbsp;스크립트 실행문;</dd>
+							<dd>}</dd>
+						</dl>
+						<dl class="w48">
+							<dt>매개 함수 실행 기본형</dt>
+							<dd>function 함수명(데이터1, 데이터2, ...데이터n);<dd>
+						</dl>
+					</div><!-- 매개 함수 기본형 END -->
+				</div><!-- 1. 함수 기본 END -->
+
+				<!-- 2. 내장 함수 -->
+				<div class="theory">
+					<h4>2. 내장 함수</h4>
+					<p>함수 호출만으로 함수 사용 가능</p>
+					<table summary="내장 함수의 종류" class="ex_t">
+						<caption>내장 함수의 종류</caption>
+						<colgroup><col width="15%"/><col width="50%"/><col width="35%"/></colgroup>
+						<thead>
+							<tr><th scope="col">종류</th><th scope="col">설명</th><th scope="col">사용 예</th></tr>
+						</thead>
+						<tbody>
+							<tr><th scope="row">parseInt()</th><td>문자형 데이터를 정수형 데이터로 바꿉니다.</td><td>parseInt("5.12")→5</td></tr>
+							<tr><th scope="row">parseFloat()</th><td>문자형 데이터를 실수형 데이터로 바꿉니다.</td><td>parseFloat("5.12")→5.12</td></tr>
+							<tr><th scope="row">String()</th><td>문자형 데이터로 바꿉니다.</td><td>String(5)→"5"</td></tr>
+							<tr><th scope="row">Number()</th><td>숫자형 데이터로 바꿉니다.</td><td>Number("5")→5</td></tr>
+							<tr><th scope="row">Boolean()</th><td>논리형 데이터로 바꿉니다.</td><td>Boolean(5)→true</td></tr>
+							<tr><th scope="row">isNaN()</th><td>문자형 데이터를 정수형 데이터로 바꿉니다.</td><td>isNaN("5-3")→true</td></tr>
+							<tr><th scope="row">eval()</th><td>문자형 데이터를 큰따옴표가 없는 스크립트 코드로 처리합니다.</td><td>eval("15+5")→20</td></tr>
+						</tbody>
+					</table><!-- 내장 함수의 종류 END -->
+				</div><!--  2. 내장 함수 END -->			
+			</div><!-- container END -->
+		</div><!-- main END -->
+
+		<footer id="footer">
+			<div class="container">
+				<p>SHIN NA HYEON ⓒ COPYRIGHTS ALL RESERVED.</p>
+			</div><!-- container END -->
+		</footer><!-- footer END -->
+
+		<!-- top 버튼 -->
+		<p class="top"><a href="#" title="상단으로 이동"><img src="img/arrow_top_w.png" alt="위로"/></a></p><!-- top 버튼 END -->
+
+	</div><!-- wrapper END -->
+ </body>
+
+</html>
