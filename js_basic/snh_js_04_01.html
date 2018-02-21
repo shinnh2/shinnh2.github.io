@@ -38,7 +38,7 @@
 								<li><a href="snh_js_04_03.html" title="문서 객체 모델">DOM</a></li>
 							</ul>
 						</li><!-- 객체 END -->
-						<li><a href="snh_js_05.html" title="제어문">함수</a></li><!-- 제어문 END -->
+						<li><a href="snh_js_05.html" title="제어문">함수</a></li><!-- 함수 END -->
 					</ul><!-- gnb END -->
 				</nav>
 			</div><!-- container END -->
@@ -68,7 +68,7 @@
 						</dl>
 					</div><!-- 내장 객체 생성 기본형 END -->
 					<input type="button" id="bo_r" name="bo_r" value="내장 객체 생성 예제" class="btn_normal" onclick="bo_r()"/>
-					<script>
+					<script type="text/javascript">
 					//<![CDATA[
 					function bo_r(){
 						var tv=new Object(); //생성된 객체를 변수tv가 참조합니다.
@@ -93,7 +93,7 @@
 				</div><!-- 내장객체 기본형 예제 END -->
 
 				<!-- 1 날짜 정보 객체 -->
-				<div class="theory">
+				<div class="theory" id="th1">
 					<h4>1 날짜(Date) 정보 객체</h4>
 					<p>날짜 객체는 생성할 때 반드시 생성자 함수가 필요하다.</p>
 					<div class="ex">
@@ -147,7 +147,7 @@
 				</div><!-- 날짜 정보 객체 END -->
 				
 				<!-- 2 숫자 객체 --> 
-				<div class="theory">
+				<div class="theory" id="th2">
 					<h4>2 숫자 객체</h4>
 					<div class="ex">
 						<dl class="w32">
@@ -222,7 +222,7 @@
 				</div><!-- 숫자 객체 END -->
 
 				<!-- 3 수학 객체 -->
-				<div class="theory">
+				<div class="theory" id="th3">
 					<h4>3 수학 객체</h4>
 					<p>난수로 원하는 구간 정수의 값 구하기 :  Math.floor(Math.random()*(최댓값-최솟값+1))+최솟값;</p>
 					<table summary="Math 객체의 메서드, 상수" class="ex_t">
@@ -293,20 +293,20 @@
 						var com=Math.ceil(Math.random()*3); //1~3까지 랜덤으로 발생
 						//값 비교
 						if(tNum==com){ alert("맞췄습니다! 축하합니다!!"); }
-						else{ alert("틀렸습니다... 다음 기회에!"); }
+						else if(tNum){ alert("틀렸습니다... 다음 기회에!"); }
 					}
 					//]]>
 					</script><!-- 수학2 예제 END -->
 				</div><!-- 숫자 객체 END -->
 
 				<!-- 4 배열 객체 -->
-				<div class="theory">
+				<div class="theory" id="th4">
 					<h4>4 배열 객체</h4>
 					<div class="ex">
 						<dl>
 							<dt>배열 객체 기본형 1</dt>
 							<dd>var 참조 변수=new Array();</dd>
-							<dd>참조 변수[0]=값1; 참조 변수[1]=값2; 참조 변수[3]=값3; ... 참조 변수[n]=값n;</dd>
+							<dd>참조 변수[0]=값1; 참조 변수[1]=값2; 참조 변수[2]=값3; ... 참조 변수[n-1]=값n;</dd>
 						</dl>
 					</div><!-- 배열 객체 생성 기본형 1 END -->
 					<div class="ex">
@@ -389,7 +389,7 @@
 				</div><!-- 배열 객체 END -->
 				
 				<!-- 5 문자 객체 -->
-				<div class="theory">
+				<div class="theory" id="th5">
 					<h4>5 문자 객체</h4>
 					<div class="ex">
 						<dl class="w48">
@@ -422,7 +422,7 @@
 							<tr><th scope="row">toUpperCase()</th><td>문자열에서 영문 소문자를 모두 대문자로 바꿉니다.</td></tr>
 							<tr><th scope="row">length</th><td>문자열에서 문자의 개수를 반환합니다.</td></tr>
 							<tr><th scope="row">concat("새로운 문자")</th><td>문자열에 새로운 문자열을 결합합니다.</td></tr>
-							<tr><th scope="row">charCodeAt("찾을 문자")</th><td>찾을 문자의 아스키 코드 값을 반환합니다.</td></tr>
+							<tr><th scope="row">charCodeAt(Index)</th><td>문자열 index에 해당문자의 아스키 코드 값을 반환합니다.</td></tr>
 							<tr><th scope="row">fromCharCode(아스키 코드 값)</th><td>아스키 코드 값에 해당하는 문자를 반환합니다.</td></tr>
 							<tr><th scope="row">trim()</th><td>문자의 앞 또는 뒤의 공백 문자열을 삭제합니다.</td></tr>
 						</tbody>
@@ -490,7 +490,7 @@
 				</div><!-- 문자 객체 END -->
 
 				<!-- 6 정규 표현 객체 -->
-				<div class="theory">
+				<div class="theory" id="th6">
 					<h4>6 정규 표현 객체</h4>
 					<p>정규 표현(RegExp)객체는 데이터를 규칙에 맞게 작성했는지 판단해서 알려줍니다.</p>
 					<div class="ex">
@@ -517,7 +517,7 @@
 							<tr><th scope="row">g</th><td>옵션에 g가 없으면 데이터의 왼쪽부터 규칙에 일치하는 문자 한 개만 찾지만, g를 넣으면 규칙에 맞는 모든 문자를 찾습니다.</td></tr>
 							<tr><th scope="row">m</th><td>데이터의 행이 바뀌어도 규칙에 맞는 문자를 찾습니다.</td></tr>
 							<tr><th scope="row">$</th><td>문자열 끝 부분에 규칙에 맞는 문자를 찾습니다.</td></tr>
-							<tr><th scope="row">^</th><td>문자열 앞에서부터 규칙에 일치하는 문제를 찾습니다. 또는 부정을 나타냅니다.</td></tr>
+							<tr><th scope="row">^</th><td>문자열 앞에서부터 규칙에 일치하는 문자를 찾습니다. 또는 부정을 나타냅니다.</td></tr>
 							<tr><th scope="row">\d</th><td>숫자 하나를 찾습니다.</td></tr>
 							<tr><th scope="row">\D</th><td>숫자가 아닌 문자 하나를 찾습니다.</td></tr>
 							<tr><th scope="row">\s</th><td>공백 문자(스페이스)를 찾습니다.</td></tr>
@@ -622,7 +622,7 @@
 						var theDay=theDate.getDay();
 						//3. 현재 월의 마지막 일을 구하기: lastDate, 각 달의 일수 배열 last, 윤달은 4년마다이고 100년마다는 아니고, 400년마다이다
 						var last=[31,28,31,30,31,30,31,31,30,31,30,31];
-						if( y%4 && y%100!=0 || y%400==0 ) lastDate=last[1]=29;
+						if( y%4==0 && y%100!=0 || y%400==0 ) lastDate=last[1]=29;
 						var lastDate=last[m];
 						//4. 현재 월의 달력에 필요한 행의 개수 구하기:row, (날짜(0-6)+전체 일수)/7 : 이 값의 올림	 
 						var row=Math.ceil( (theDay+lastDate)/7 );
