@@ -3,8 +3,9 @@
 //전역 변수 설정
 var scrollEvent=false;
 var count=0;
+var value=0;
 var winTop=$(window).scrollTop();
-var docTop=$(document).scrollTop();
+var sb=$(".Sec:eq(0)").height();
 var secTop=[".s1", ".s2", ".s3", ".s4", ".s5", ".s6"];
 var sbtns=[".sbtn1", ".sbtn2", ".sbtn3", ".sbtn4", ".sbtn5", ".sbtn6"];
 
@@ -13,8 +14,7 @@ var sbtns=[".sbtn1", ".sbtn2", ".sbtn3", ".sbtn4", ".sbtn5", ".sbtn6"];
 $("html, body").on("mousewheel",function(c){
 	c.preventDefault();
 	var m=c.originalEvent.wheelDelta;
-	var sb=$(".Sec:eq(0)").height();
-
+	
 	if(m>1 && scrollEvent==false &&count >=1){
 		scrollEvent=true;
 		count--;
@@ -32,6 +32,7 @@ $("html, body").on("mousewheel",function(c){
 		}
 	}
 });//wheel END
+
 //페이지 로드시 페이지 위치와 버튼 일치
 for( n=0; n<6; n++ ){
 	if( winTop == $(secTop[n]).offset().top || count==n ){ 
@@ -46,11 +47,21 @@ $(".scrollBtn").click(function(){
 	var sIndex=$(this).index();
 	$(".scrollBtn a").css("backgroundColor","#a2a1a0");
 	$(this).children("a").css("backgroundColor","#ed1c24");
-	$("html, body").animate({scrollTop:$(".Sec:eq("+sIndex+")").offset().top}, 900, function(){ count=sIndex; scrollEvent=false; });
+	$("html, body").animate({scrollTop:$(".Sec:eq("+sIndex+")").offset().top}, 900, function(){ count=sIndex; value=sIndex; scrollEvent=false; });
 	return false;
 });//click END
 
-///*
+//다음 버튼 클릭시 한 섹션씩 스크롤
+$(".next a").click(function(){
+	count++;
+	$("html, body").animate({scrollTop:sb*count}, 900, function(){ 
+		scrollEvent=false;
+		$(".scrollBtn a").css("backgroundColor","#a2a1a0");
+		$(".scrollBtn").eq(count).children("a").css("backgroundColor","#ed1c24");
+	});	
+	return false;	
+});//click END
+
 //.s2 hover기능
 //초기화 함수 선언
 function hoverResets2(){
@@ -95,7 +106,6 @@ $(".s3 .idbBlock li").mouseenter(function(){
 	hoverResets3();
 	$(".mc3").stop().fadeIn();
 });//END 
-//*/
 
 //scroll animation
 $(".mc1").fadeIn();
@@ -122,7 +132,7 @@ $(window).scroll(function(){
 	}else if( value >= $(".s5").offset().top && value < $(".s6").offset().top ){  //.s5구간
 		$(".mc5").fadeIn();
 		$(".idbb1 a img, .idbb1 a span").css({"animation":"unset"});
-		$(".slide").css({"animation":"flowSlide 30s infinite alternate"});
+		$(".slide").css({"animation":"flowSlide 25s infinite alternate ease-in-out"});
 	}else if( value >= $(".s6").offset().top ){  //.s6구간
 		$(".mc6").fadeIn();
 		$(".idbb1 a img, .idbb1 a span").css({"animation":"unset"});
