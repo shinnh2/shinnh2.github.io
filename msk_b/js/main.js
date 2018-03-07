@@ -122,7 +122,7 @@ $(window).scroll(function(){
 	}else if( value >= $(".s5").offset().top && value < $(".s6").offset().top ){  //.s5구간
 		$(".mc5").fadeIn();
 		$(".idbb1 a img, .idbb1 a span").css({"animation":"unset"});
-		$(".slide").css({"animation":"flowSlide 60s infinite alternate"});
+		$(".slide").css({"animation":"flowSlide 30s infinite alternate"});
 	}else if( value >= $(".s6").offset().top ){  //.s6구간
 		$(".mc6").fadeIn();
 		$(".idbb1 a img, .idbb1 a span").css({"animation":"unset"});

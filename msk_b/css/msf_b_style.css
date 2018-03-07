@@ -251,13 +251,11 @@
 		position:absolute;
 		left:240px;
 		bottom:100px;
-		overflow:hidden;
-		height:35%;
+		overflow:hidden;;
 	}
 	.slide{
 		height:415px;
 		width:2200px;
-		height:100%;
 	}
 	.slide li{
 		width:310px;
