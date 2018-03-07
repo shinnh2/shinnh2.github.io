@@ -1,0 +1,4 @@
+/* base.css */ 
+a:link, a:visited{ color:#000; text-decoration:none; }
+a:hover, a:focus{ color:#000; text-decoration:none; }
+body{ font-family: 'Noto Serif KR', serif; color:#fff; font-weight:lighter; }
